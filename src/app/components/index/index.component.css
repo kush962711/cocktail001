@@ -1,0 +1,75 @@
+.footer {
+    position: fixed;
+    left: 1100px;
+    top: 150px;
+    width: 200px;
+    color: white;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+
+  button {
+    background-color: #526352;
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin: 4px 2px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .para {
+    position: fixed;
+    left: 1113px;
+    top: 100px;
+    display: inline-block;
+    padding:20px 20px;
+    font-size: 20px;
+    color: black;
+    text-align: center;
+  }
+
+  .search{
+    position: fixed;
+    left: 1400px;
+    top: 100px;
+    display: inline-block;
+    padding:20px 20px;
+    font-size: 15px;
+    color: black;
+    text-align: center;
+  }
+
+  .search-icon{
+    cursor:pointer;
+  }
+  
+  .spinner{
+    position: absolute;
+    left: 700px;
+    top:300px;
+  }
+
+  .app{
+    position: absolute;
+    left: 300px;
+    top:100px;
+    max-height: 500px;
+    width: 400px;
+    border-radius: 20px;
+    overflow-y: scroll;
+}
+
+.example-card {
+  max-height:60px;
+  background-color: black;
+  color:white;
+  border-width: thin;
+  border-style:solid;
+  border-color:white;
+}
