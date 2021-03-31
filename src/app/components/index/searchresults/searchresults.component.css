@@ -1,0 +1,7 @@
+.card{
+    position: absolute;
+    left: 700px;
+    top: 100px;
+    height:500px;
+    overflow-y: scroll;
+    }

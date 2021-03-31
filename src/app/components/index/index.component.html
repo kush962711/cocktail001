@@ -1,0 +1,40 @@
+<div class="para">
+    <p>Search By Index</p>
+</div>
+
+<div class="footer">
+    <button *ngFor="let el of arr" (click)="onLoadIndex(el)">
+        {{el}}
+    </button>
+</div>
+
+<div class="search">
+    <mat-form-field>
+        <input #searchval matInput type="search" placeholder="search here" class="search-input">
+        <mat-icon matSuffix class="search-icon" (click)="onSearch(searchval.value)">search</mat-icon>
+    </mat-form-field>
+</div>
+
+<mat-spinner class="spinner" *ngIf="loader.isLoadingSpinner; else content"></mat-spinner>
+
+
+<ng-template #content>
+    <div class="app" *ngIf="cocktail.isFiltering">
+        <mat-card class="example-card" *ngFor="let cocktail of searchList" (click)="cocktailDetail(cocktail)">
+            <mat-card-header>
+                <img mat-card-avatar [src]="cocktail.imgThumb">
+                <span class="a">{{cocktail.name}}</span>
+            </mat-card-header>
+        </mat-card>
+    </div>
+</ng-template>
+
+<div class="app" *ngIf="searchListLength<1">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <span class="a">No Results Found</span>
+        </mat-card-header>
+    </mat-card>
+</div>  
+
+<app-searchresults *ngIf="clicked" [element]="searchedElement"></app-searchresults>
