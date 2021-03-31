@@ -11,6 +11,7 @@ export class CocktailService {
 
   val: Observable<Cocktail[]>;
   isFiltering:boolean=false;
+  isDefault:boolean;
   constructor(private http: HttpClient) { }
   getIndexed(index: String): Observable<Cocktail[]> {
  

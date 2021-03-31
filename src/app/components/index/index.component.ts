@@ -33,9 +33,14 @@ export class IndexComponent implements OnInit {
 
   ngOnInit(): void {
     this.createArray();
+    this.cocktail.getIndexed('a').subscribe(res => {
+      this.searchList = res;
+     });
+     this.cocktail.isDefault = true;
   }
 
   onLoadIndex(index: String) {
+    this.cocktail.isDefault = false;
     this.cocktail.isFiltering = false;
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this.router.navigate(['/browse', index]);
@@ -43,6 +48,7 @@ export class IndexComponent implements OnInit {
   }
 
   onSearch(search: String) {
+    this.cocktail.isDefault = false;
     this.searchListLength = 1;
     this.loader.spinnerShow();
     this.cocktail.isFiltering = true;

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { CocktailService }  from './services/cocktail.service';
 
 @Component({
@@ -7,8 +7,14 @@ import { CocktailService }  from './services/cocktail.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private cocktail:CocktailService){}
+  constructor(private cocktail:CocktailService,
+    private elementRef: ElementRef){}
 
   title = 'cocktail002';
 
+
+  ngAfterViewInit(){
+    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor =  '#ffffff';
+    ;
+ }
 }
