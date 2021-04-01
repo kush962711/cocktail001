@@ -3,8 +3,8 @@
 
 .buttonpos {
     position: fixed;
-    left: 310px;
-    bottom : 20px;
+    left: 20%;
+    bottom : 2%;
     color: white;
     text-align: center;
     border: 2px solid white;
@@ -27,16 +27,16 @@
  .footer{
    position: fixed;
   width:100%;
-   bottom:0px;
-  height: 12vh;
+   bottom:0%;
+  height: 12%;
   background:darkcyan;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
  }
   .para {
     position: fixed;
-    left: 730px;
-    bottom:50px;
+    left: 45%;
+    bottom: 4%;
     color:white;
     display: inline-block;
     padding:20px 20px;
@@ -47,8 +47,8 @@
 
   .search{
     position: fixed;
-    left: 10px;
-    top: 120px;
+    left: 1%;
+    top: 12%;
     display: inline-block;
     padding:20px 20px;
     font-size: 15px;
@@ -59,18 +59,16 @@
   .search-icon{
     cursor:pointer;
   }
-  .search-input{
-    width:300px;
-  }
+ 
   
   .spinner{
     position: absolute;
-    left: 775px;
-    top:400px;
+    left: 50%;
+    top:40%;
   }
 
   .example-card {
-    max-height:60px;
+    max-height:7%;
     background-color: black;
     color:white;
     border-width: thin;
@@ -82,10 +80,10 @@
   }
   .app{
     position: fixed;
-    left: 400px;
-    top:150px;
-    max-height: 500px;
-    width: 400px;
+    left: 23.8%;
+    top:17.2%;
+    max-height: 58.3%;
+    width: 23.7%;
     border-radius: 0px;
     border-width:thin;
     border-color: black;
@@ -96,9 +94,9 @@
 
 .expand{
   position: absolute;
-  left:10px;
-  top:220px;
-  width:270px;
+  left:1%;
+  top:22%;
+  width:16%;
 }
 
 .panel{
@@ -120,7 +118,7 @@
 
 .searching{
   height:79%;
-  width: 300px;
+  width: 18%;
   background: rgb(232, 241, 245);
   border-right: 2px solid darkcyan;
 }
