@@ -1,4 +1,4 @@
-<div class="ui card" *ngIf=cocktail.isFiltering>
+<div class="ui card" *ngIf="cocktail.isFiltering && !cocktail.hasSearched">
     <div class="image">
       <img [src]="element.imgThumb" />
     </div>

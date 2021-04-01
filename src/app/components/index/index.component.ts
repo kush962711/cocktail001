@@ -40,6 +40,7 @@ export class IndexComponent implements OnInit {
   }
 
   onLoadIndex(index: String) {
+    this.searchListLength = 1;
     this.cocktail.isDefault = false;
     this.cocktail.isFiltering = false;
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
@@ -48,6 +49,7 @@ export class IndexComponent implements OnInit {
   }
 
   onSearch(search: String) {
+    this.cocktail.hasSearched = true;
     this.cocktail.isDefault = false;
     this.searchListLength = 1;
     this.loader.spinnerShow();
@@ -67,5 +69,6 @@ export class IndexComponent implements OnInit {
   cocktailDetail(cocktail: Cocktail): void {
     this.searchedElement = cocktail;
     this.clicked = true;
+    this.cocktail.hasSearched = false;
   }
 }
