@@ -1,9 +1,9 @@
 .card{
 position: absolute;
-left: 800px;
-top: 150px;
-width:275px;
-height:500px;
+left: 47.5%;
+top: 17.2%;
+width:16.5%;
+height:58.3%;
 overflow-y: scroll;
 border-color: black;
 border-style: solid;
@@ -13,8 +13,8 @@ border-radius:10px;
 }
 
 img{
-    height:250px;
-    width: 280px;
+    height:40%;
+    width: 110%;
 }
 
 .cardf{
