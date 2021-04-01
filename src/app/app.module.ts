@@ -7,7 +7,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { IndexComponent } from './components/index/index.component';
 import { IndexedcontentComponent } from './components/index/indexedcontent/indexedcontent.component';
 import { IndexedcontentdetailsComponent } from './components/index/indexedcontent/indexedcontentdetails/indexedcontentdetails.component';
-import { ErrorIntercept } from './services/error.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
@@ -18,6 +17,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { SearchresultsComponent } from './components/index/searchresults/searchresults.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDividerModule} from '@angular/material/divider';
+
 
 @NgModule({
   declarations: [
@@ -40,15 +41,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatProgressSpinnerModule,
     MatExpansionModule,
     ReactiveFormsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDividerModule
   ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ErrorIntercept,
-      multi: true
-    }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,20 +1,45 @@
+
+<div class="footer">
 <div class="para">
     <p>Search By Index</p>
 </div>
 
-<div class="footer">
+<div class="buttonpos">
     <button *ngFor="let el of arr" (click)="onLoadIndex(el)">
         {{el}}
     </button>
 </div>
-
-<div class="search">
-    <mat-form-field>
-        <input #searchval matInput type="search" placeholder="search here" class="search-input">
-        <mat-icon matSuffix class="search-icon" (click)="onSearch(searchval.value)">search</mat-icon>
-    </mat-form-field>
 </div>
+<div class="searching">
+    <div class="search">
+        <mat-form-field>
+            <input #searchval matInput type="search" placeholder="search by name" class="search-input">
+            <mat-icon matSuffix class="search-icon" (click)="onSearch(searchval.value)">search</mat-icon>
+        </mat-form-field>
+    </div>
 
+    <div class="expand">
+        <mat-expansion-panel class="panel">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Advanced Search
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <form [formGroup]='filtersForm' (ngSubmit)='submitForm()'>
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Ingredient Search" formControlName="ing">
+                </mat-form-field>
+                <button class="nb" type="submit">
+                    <mat-icon>search</mat-icon>
+                </button>
+                <br /> <br />
+                <input type="checkbox" formControlName="cocktail" /> Cocktail
+                &nbsp; &nbsp;
+                <input type="checkbox" formControlName="ordinary" /> Ordinary Drink
+            </form>
+        </mat-expansion-panel>
+    </div>
+</div>
 <mat-spinner class="spinner" *ngIf="loader.isLoadingSpinner; else content"></mat-spinner>
 
 
@@ -46,35 +71,5 @@
     </mat-card>
 </div>
 
-
-<div class="expand">
-    <mat-expansion-panel class="panel">
-        <mat-expansion-panel-header>
-            <mat-panel-title>
-                Advanced Search
-            </mat-panel-title>
-        </mat-expansion-panel-header>
-
-        <form [formGroup]='filtersForm' (ngSubmit)='submitForm()'>
-
-            <mat-form-field>
-                <input matInput type="text" placeholder="Ingredient Search" formControlName="ing">
-            </mat-form-field>
-            <button class="nb" type="submit">
-                <mat-icon>search</mat-icon>
-            </button>
-
-            <br /> <br />
-
-
-            <input type="checkbox" formControlName="cocktail" /> Cocktail
-
-            &nbsp; &nbsp;
-
-
-            <input type="checkbox" formControlName="ordinary" /> Ordinary Drink
-        </form>
-    </mat-expansion-panel>
-</div>
 
 <app-searchresults *ngIf="clicked" [element]="searchedElement"></app-searchresults>

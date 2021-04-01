@@ -1,7 +1,22 @@
 .card{
 position: absolute;
-left: 700px;
-top: 100px;
+left: 800px;
+top: 150px;
+width:275px;
 height:500px;
 overflow-y: scroll;
+border-color: black;
+border-style: solid;
+border-width:thin;
+padding: 3px;
+border-radius:10px;
+}
+
+img{
+    height:250px;
+    width: 280px;
+}
+
+.cardf{
+    padding:17px;
 }

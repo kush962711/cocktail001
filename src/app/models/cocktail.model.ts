@@ -1,6 +1,5 @@
-import { Drink } from "./Drink.model";
 
-export class Cocktail implements Drink {
+export class Cocktail {
   name: String;
   imgThumb: String;
   id: String;
