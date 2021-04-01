@@ -73,3 +73,28 @@
   border-style:solid;
   border-color:white;
 }
+
+.expand{
+  position: absolute;
+  left:1400px;
+  top:180px;
+  width:270px;
+}
+
+.panel{
+  background: rgb(228, 228, 231);
+}
+
+.nb{
+  background-color: #526352;
+    border: none;
+    color: white;
+    padding: 1px 1px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 7px;
+    border-radius: 6px;
+    cursor: pointer;
+
+}

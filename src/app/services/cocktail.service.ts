@@ -42,4 +42,17 @@ export class CocktailService {
       ),
     );
   }
+  getIngredientCocktail(search:String): Observable<Cocktail[]>{
+    return this.http.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${search}`)
+    .pipe(
+      map((data:any) => {
+      if(data.drinks===null){
+        return null;
+      }
+      else
+     return data.drinks.map(Cocktail.adapt)
+      }
+      ),
+    );
+  }
 }

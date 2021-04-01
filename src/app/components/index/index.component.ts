@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { CocktailService } from './../../services/cocktail.service';
 import { LoaderService } from './../../services/loader.service';
 import { Cocktail } from './../../models/Cocktail.model';
-
+import { FormGroup, FormControl } from '@angular/forms'; 
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -22,6 +22,12 @@ export class IndexComponent implements OnInit {
   searchedElement: Cocktail;
   clicked: boolean = false;
   searchListLength: number;
+
+  filtersForm = new FormGroup({
+    ing: new FormControl(''),
+    cocktail: new FormControl(''),
+    ordinary: new FormControl('')
+  });
   createArray() {
     let j = 0;
     for (let i = 65; i <= 90; i++) {
@@ -70,5 +76,18 @@ export class IndexComponent implements OnInit {
     this.searchedElement = cocktail;
     this.clicked = true;
     this.cocktail.hasSearched = false;
+  }
+
+  submitForm():void{
+    this.loader.spinnerShow();
+    this.cocktail.isFiltering=true;
+    if(this.filtersForm.value.ing)
+    {
+      console.log(this.filtersForm.value.ing)
+      this.cocktail.getIngredientCocktail(this.filtersForm.value.ing)
+      .subscribe(
+        data => this.searchList = data
+      )
+    }
   }
 }

@@ -44,6 +44,37 @@
             <span class="a">No Results Found</span>
         </mat-card-header>
     </mat-card>
-</div>  
+</div>
+
+
+<div class="expand">
+    <mat-expansion-panel class="panel">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Advanced Search
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <form [formGroup]='filtersForm' (ngSubmit)='submitForm()'>
+
+            <mat-form-field>
+                <input matInput type="text" placeholder="Ingredient Search" formControlName="ing">
+            </mat-form-field>
+            <button class="nb" type="submit">
+                <mat-icon>search</mat-icon>
+            </button>
+
+            <br /> <br />
+
+
+            <input type="checkbox" formControlName="cocktail" /> Cocktail
+
+            &nbsp; &nbsp;
+
+
+            <input type="checkbox" formControlName="ordinary" /> Ordinary Drink
+        </form>
+    </mat-expansion-panel>
+</div>
 
 <app-searchresults *ngIf="clicked" [element]="searchedElement"></app-searchresults>
