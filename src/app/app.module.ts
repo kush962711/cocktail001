@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -16,7 +16,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { SearchresultsComponent } from './components/index/searchresults/searchresults.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDividerModule} from '@angular/material/divider';
 
 
@@ -41,7 +40,6 @@ import {MatDividerModule} from '@angular/material/divider';
     MatProgressSpinnerModule,
     MatExpansionModule,
     ReactiveFormsModule,
-    MatCheckboxModule,
     MatDividerModule
   ],
   providers: [],

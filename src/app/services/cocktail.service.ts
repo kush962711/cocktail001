@@ -12,6 +12,7 @@ export class CocktailService {
   val: Observable<Cocktail[]>;
   isFiltering:boolean=false;
   isDefault:boolean;
+  hasSubmitted: boolean;
   hasSearched: boolean;
   constructor(private http: HttpClient) { }
   getIndexed(index: String): Observable<Cocktail[]> {
@@ -44,6 +45,35 @@ export class CocktailService {
   }
   getIngredientCocktail(search:String): Observable<Cocktail[]>{
     return this.http.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${search}`)
+    .pipe(
+      map((data:any) => {
+      if(data.drinks===null){
+        return null;
+      }
+      else
+     return data.drinks.map(Cocktail.adapt)
+      }
+      ),
+    );
+  }
+  
+  searchById(id:number):Observable<Cocktail[]>{
+    return this.http.get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
+    .pipe(
+      map((data:any) => {
+      if(data.drinks===null){
+        return null;
+      }
+      else
+     return data.drinks.map(Cocktail.adapt)
+      }
+      ),
+    );
+
+  }
+
+  searchByType(search:string):Observable<Cocktail[]>{
+    return this.http.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${search}`)
     .pipe(
       map((data:any) => {
       if(data.drinks===null){

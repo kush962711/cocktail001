@@ -48,16 +48,22 @@
   .search{
     position: fixed;
     left: 1%;
-    top: 12%;
+    top: 15%;
+    height:3%;
+    width:13.65%;
     display: inline-block;
     padding:20px 20px;
     font-size: 15px;
     color: black;
     text-align: center;
+    background: rgb(39, 143, 138);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
   }
 
   .search-icon{
     cursor:pointer;
+    color: white;
   }
  
   
@@ -81,9 +87,9 @@
   .app{
     position: fixed;
     left: 23.8%;
-    top:17.2%;
-    max-height: 58.3%;
-    width: 23.7%;
+    top:15%;
+    max-height: 70%;
+    width: 40%;
     border-radius: 0px;
     border-width:thin;
     border-color: black;
@@ -98,11 +104,26 @@
   top:22%;
   width:16%;
 }
-
-.panel{
-  background: rgb(228, 228, 231);
+.title{
+  color:white;
+  padding-left: 13px;
 }
-
+.mat-form-field-label {
+  color: white;
+}
+.panel{
+  background: rgb(39, 143, 138);
+  color:white;
+}
+.input{
+  padding-left: 9px;
+}
+.checkbox{
+  padding-left: 20px;
+}
+.input ::ng-deep .mat-form-field-label {
+    color: white;
+}
 .nb{
   background-color: #526352;
     border: none;
