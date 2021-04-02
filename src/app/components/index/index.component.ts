@@ -83,6 +83,7 @@ export class IndexComponent implements OnInit {
   }
 
   submitForm(): void {
+    this.searchListLength=1;
     this.advancedSearch = true;
     this.cocktail.isDefault = false;
     this.cocktail.hasSearched = true;
@@ -120,6 +121,8 @@ export class IndexComponent implements OnInit {
       );
 
       setTimeout(() => {
+        if(this.initialList===null)
+        this.searchListLength=0;
         for (let i = 0; i <= this.initialList.length - 1; i++) {
           let el = this.initialList[i];
           console.log(el);
@@ -223,6 +226,8 @@ export class IndexComponent implements OnInit {
         );
 
       setTimeout(() => {
+        if(this.initialList===null)
+        this.searchListLength=0;
         for (let i = 0; i <= this.initialList.length - 1; i++) {
           let el = this.initialList[i];
           console.log(el);
@@ -326,6 +331,8 @@ export class IndexComponent implements OnInit {
         );
 
       setTimeout(() => {
+        if(this.initialList===null)
+        this.searchListLength=0;
         for (let i = 0; i <= this.initialList.length - 1; i++) {
           let el = this.initialList[i];
           console.log(el);
@@ -439,6 +446,8 @@ export class IndexComponent implements OnInit {
       );
 
       setTimeout(() => {
+        if(this.initialList===null)
+        this.searchListLength=0;
         this.searchList = this.initialList;
       }, 2000);
     }
@@ -457,6 +466,8 @@ export class IndexComponent implements OnInit {
         );
 
       setTimeout(() => {
+        if(this.initialList===null)
+        this.searchListLength=0;
         this.searchList = this.initialList;
       }, 2000);
     }
@@ -475,6 +486,8 @@ export class IndexComponent implements OnInit {
         );
 
       setTimeout(() => {
+        if(this.initialList===null)
+        this.searchListLength=0;
         this.searchList = this.initialList;
       }, 2000);
     }
@@ -486,12 +499,19 @@ export class IndexComponent implements OnInit {
             for (let i = 0; i <= data.length - 1; i++) {
               this.cocktail.searchById(+data[i].id).
                 subscribe(
-                  data => this.searchList[i] = data[0]
+                  data => {
+                    this.initialList[i] = data[0]
+                  }
                 )
             }
-            console.log(this.searchList);
           }
         );
+
+        setTimeout(() => {
+          if(this.initialList===null)
+          this.searchListLength=0;
+          this.searchList = this.initialList;
+        }, 2000);
     }
   }
 }
