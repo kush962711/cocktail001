@@ -16,9 +16,8 @@
             <input #searchval matInput type="search" placeholder="Search By Name" class="search-input">
             <mat-icon matSuffix class="search-icon" (click)="onSearch(searchval.value)">search</mat-icon>
         </mat-form-field>
-    </div>
+    
 
-    <div class="expand">
         <mat-expansion-panel class="panel">
             <mat-expansion-panel-header>
                 <mat-panel-title class="title"> 
@@ -37,9 +36,11 @@
                 &nbsp; &nbsp;
                 <input type="checkbox" formControlName="ordinary" class="checkbox"/> Ordinary Drink
             </form>
-        </mat-expansion-panel>
+            </mat-expansion-panel>
     </div>
+
 </div>
+
 <mat-spinner class="spinner" *ngIf="loader.isLoadingSpinner; else content"></mat-spinner>
 
 

@@ -49,7 +49,7 @@
     position: fixed;
     left: 1%;
     top: 15%;
-    height:3%;
+    height:10%;
     width:13.65%;
     display: inline-block;
     padding:20px 20px;
@@ -57,8 +57,7 @@
     color: white;
     text-align: center;
     background: rgb(39, 143, 138);
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
+    border-radius: 5px;
   }
 
   .search-icon{
@@ -98,12 +97,7 @@
     overflow-y: scroll;
 }
 
-.expand{
-  position: absolute;
-  left:1%;
-  top:22%;
-  width:16%;
-}
+
 .title{
   color:white;
   padding-left: 13px;
@@ -112,8 +106,11 @@
   color: white;
 }
 .panel{
+  position:fixed;
   background: rgb(39, 143, 138);
   color:white;
+  width: 16%;
+  left: 1%;
 }
 .input{
   padding-left: 9px;
