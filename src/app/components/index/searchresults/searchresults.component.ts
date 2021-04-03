@@ -12,6 +12,4 @@ export class SearchresultsComponent implements OnInit {
   @Input() element: Cocktail;
   ngOnInit(): void {
   }
-  
-
 }

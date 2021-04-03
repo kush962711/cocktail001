@@ -14,5 +14,4 @@ export class IndexedcontentdetailsComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.element);
   }
-
 }

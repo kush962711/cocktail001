@@ -1,14 +1,13 @@
-
 <div class="footer">
-<div class="para">
-    <p>Search By Index</p>
-</div>
+    <div class="para">
+        <p>Search By Index</p>
+    </div>
 
-<div class="buttonpos">
-    <button *ngFor="let el of arr" (click)="onLoadIndex(el)">
-        {{el}}
-    </button>
-</div>
+    <div class="buttonpos">
+        <button *ngFor="let el of arr" (click)="onLoadIndex(el)">
+            {{el}}
+        </button>
+    </div>
 </div>
 <div class="searching">
     <div class="search">
@@ -16,11 +15,11 @@
             <input #searchval matInput type="search" placeholder="Search By Name" class="search-input">
             <mat-icon matSuffix class="search-icon" (click)="onSearch(searchval.value)">search</mat-icon>
         </mat-form-field>
-    
+
 
         <mat-expansion-panel class="panel">
             <mat-expansion-panel-header>
-                <mat-panel-title class="title"> 
+                <mat-panel-title class="title">
                     Advanced Search
                 </mat-panel-title>
             </mat-expansion-panel-header>
@@ -32,11 +31,11 @@
                     <mat-icon>search</mat-icon>
                 </button>
                 <br /> <br />
-                <input type="checkbox" formControlName="cocktail" class="checkbox"/> Cocktail
+                <input type="checkbox" formControlName="cocktail" class="checkbox" /> Cocktail
                 &nbsp; &nbsp;
-                <input type="checkbox" formControlName="ordinary" class="checkbox"/> Ordinary Drink
+                <input type="checkbox" formControlName="ordinary" class="checkbox" /> Ordinary Drink
             </form>
-            </mat-expansion-panel>
+        </mat-expansion-panel>
     </div>
 
 </div>

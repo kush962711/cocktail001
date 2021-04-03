@@ -10,7 +10,7 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
   
-    .header-text {
+.header-text {
       font-family: 'Caveat', cursive;
       font-style: normal;
       font-weight: normal;
@@ -19,7 +19,7 @@
       color:white;
     }
   
-    img {
+img {
       max-width: auto;
       max-height: 3vw;
     }
