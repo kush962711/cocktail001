@@ -1,45 +1,45 @@
-
 <div class="footer">
-<div class="para">
-    <p>Search By Index</p>
-</div>
+    <div class="para">
+        <p>Search By Index</p>
+    </div>
 
-<div class="buttonpos">
-    <button *ngFor="let el of arr" (click)="onLoadIndex(el)">
-        {{el}}
-    </button>
-</div>
+    <div class="buttonpos">
+        <button *ngFor="let el of arr" (click)="onLoadIndex(el)">
+            {{el}}
+        </button>
+    </div>
 </div>
 <div class="searching">
     <div class="search">
-        <mat-form-field>
-            <input #searchval matInput type="search" placeholder="search by name" class="search-input">
+        <mat-form-field class="input">
+            <input #searchval matInput type="search" placeholder="Search By Name" class="search-input">
             <mat-icon matSuffix class="search-icon" (click)="onSearch(searchval.value)">search</mat-icon>
         </mat-form-field>
-    </div>
 
-    <div class="expand">
+
         <mat-expansion-panel class="panel">
             <mat-expansion-panel-header>
-                <mat-panel-title>
+                <mat-panel-title class="title">
                     Advanced Search
                 </mat-panel-title>
             </mat-expansion-panel-header>
-            <form [formGroup]='filtersForm' (ngSubmit)='submitForm()'>
-                <mat-form-field>
+            <form [formGroup]="filtersForm" (ngSubmit)="submitForm()">
+                <mat-form-field class="input">
                     <input matInput type="text" placeholder="Ingredient Search" formControlName="ing">
                 </mat-form-field>
                 <button class="nb" type="submit">
                     <mat-icon>search</mat-icon>
                 </button>
                 <br /> <br />
-                <input type="checkbox" formControlName="cocktail" /> Cocktail
+                <input type="checkbox" formControlName="cocktail" class="checkbox" /> Cocktail
                 &nbsp; &nbsp;
-                <input type="checkbox" formControlName="ordinary" /> Ordinary Drink
+                <input type="checkbox" formControlName="ordinary" class="checkbox" /> Ordinary Drink
             </form>
         </mat-expansion-panel>
     </div>
+
 </div>
+
 <mat-spinner class="spinner" *ngIf="loader.isLoadingSpinner; else content"></mat-spinner>
 
 

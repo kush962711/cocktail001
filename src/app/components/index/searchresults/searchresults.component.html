@@ -1,8 +1,8 @@
 <div class="card" *ngIf="cocktail.isFiltering && !cocktail.hasSearched">
   <mat-card>
-      <mat-card-header>
-          <mat-card-title> {{ element.name }} </mat-card-title>
-      </mat-card-header>
+    <mat-card-header>
+      <mat-card-title> {{ element.name }} </mat-card-title>
+    </mat-card-header>
   </mat-card>
   <img mat-card-image [src]="element.imgThumb" alt="cocktail photo">
   <mat-card-content>
@@ -17,57 +17,49 @@
       {{ element.ingredient1 }}
       <span *ngIf="element.measure1">
         |
-        {{ element.measure1 }}</span
-      >
+        {{ element.measure1 }}</span>
     </div>
     <div *ngIf="element.ingredient2">
       {{ element.ingredient2 }}
       <span *ngIf="element.measure2">
         |
-        {{ element.measure2 }}</span
-      >
+        {{ element.measure2 }}</span>
     </div>
     <div *ngIf="element.ingredient3">
       {{ element.ingredient3 }}
       <span *ngIf="element.measure3">
         |
-        {{ element.measure3 }}</span
-      >
+        {{ element.measure3 }}</span>
     </div>
     <div *ngIf="element.ingredient4">
       {{ element.ingredient4 }}
       <span *ngIf="element.measure4">
         |
-        {{ element.measure4 }}</span
-      >
+        {{ element.measure4 }}</span>
     </div>
     <div *ngIf="element.ingredient5">
       {{ element.ingredient5 }}
       <span *ngIf="element.measure5">
         |
-        {{ element.measure5 }}</span
-      >
+        {{ element.measure5 }}</span>
     </div>
     <div *ngIf="element.ingredient6">
       {{ element.ingredient6 }}
       <span *ngIf="element.measure6">
         |
-        {{ element.measure6 }}</span
-      >
+        {{ element.measure6 }}</span>
     </div>
     <div *ngIf="element.ingredient7">
       {{ element.ingredient7 }}
       <span *ngIf="element.measure7">
         |
-        {{ element.measure7 }}</span
-      >
+        {{ element.measure7 }}</span>
     </div>
     <div *ngIf="element.ingredient8">
       {{ element.ingredient8 }}
       <span *ngIf="element.measure8">
         |
-        {{ element.measure8 }}</span
-      >
+        {{ element.measure8 }}</span>
     </div>
   </mat-card-footer>
 </div>
@@ -75,9 +67,9 @@
 
 <div class="card" *ngIf="cocktail.isDefault">
   <mat-card>
-      <mat-card-header>
-          <mat-card-title> {{ element.name }} </mat-card-title>
-      </mat-card-header>
+    <mat-card-header>
+      <mat-card-title> {{ element.name }} </mat-card-title>
+    </mat-card-header>
   </mat-card>
   <img mat-card-image [src]="element.imgThumb" alt="cocktail photo">
   <mat-card-content>
@@ -92,57 +84,49 @@
       {{ element.ingredient1 }}
       <span *ngIf="element.measure1">
         |
-        {{ element.measure1 }}</span
-      >
+        {{ element.measure1 }}</span>
     </div>
     <div *ngIf="element.ingredient2">
       {{ element.ingredient2 }}
       <span *ngIf="element.measure2">
         |
-        {{ element.measure2 }}</span
-      >
+        {{ element.measure2 }}</span>
     </div>
     <div *ngIf="element.ingredient3">
       {{ element.ingredient3 }}
       <span *ngIf="element.measure3">
         |
-        {{ element.measure3 }}</span
-      >
+        {{ element.measure3 }}</span>
     </div>
     <div *ngIf="element.ingredient4">
       {{ element.ingredient4 }}
       <span *ngIf="element.measure4">
         |
-        {{ element.measure4 }}</span
-      >
+        {{ element.measure4 }}</span>
     </div>
     <div *ngIf="element.ingredient5">
       {{ element.ingredient5 }}
       <span *ngIf="element.measure5">
         |
-        {{ element.measure5 }}</span
-      >
+        {{ element.measure5 }}</span>
     </div>
     <div *ngIf="element.ingredient6">
       {{ element.ingredient6 }}
       <span *ngIf="element.measure6">
         |
-        {{ element.measure6 }}</span
-      >
+        {{ element.measure6 }}</span>
     </div>
     <div *ngIf="element.ingredient7">
       {{ element.ingredient7 }}
       <span *ngIf="element.measure7">
         |
-        {{ element.measure7 }}</span
-      >
+        {{ element.measure7 }}</span>
     </div>
     <div *ngIf="element.ingredient8">
       {{ element.ingredient8 }}
       <span *ngIf="element.measure8">
         |
-        {{ element.measure8 }}</span
-      >
+        {{ element.measure8 }}</span>
     </div>
   </mat-card-footer>
 </div>

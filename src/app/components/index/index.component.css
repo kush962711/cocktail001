@@ -30,7 +30,7 @@
    bottom:0%;
   height: 12%;
   background:darkcyan;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
 
  }
   .para {
@@ -48,16 +48,21 @@
   .search{
     position: fixed;
     left: 1%;
-    top: 12%;
+    top: 15%;
+    height:10%;
+    width:13.65%;
     display: inline-block;
     padding:20px 20px;
     font-size: 15px;
-    color: black;
+    color: white;
     text-align: center;
+    background: rgb(39, 143, 138);
+    border-radius: 5px;
   }
 
   .search-icon{
     cursor:pointer;
+    color: white;
   }
  
   
@@ -81,28 +86,40 @@
   .app{
     position: fixed;
     left: 23.8%;
-    top:17.2%;
-    max-height: 58.3%;
-    width: 23.7%;
+    top:15%;
+    max-height: 70%;
+    width: 40%;
     border-radius: 0px;
-    border-width:thin;
-    border-color: black;
+    border-color: darkcyan;
     border-style:solid;
     border-radius:10px;
     overflow-y: scroll;
 }
 
-.expand{
-  position: absolute;
-  left:1%;
-  top:22%;
-  width:16%;
-}
 
+.title{
+  color:white;
+  padding-left: 13px;
+}
+.mat-form-field-label {
+  color: white;
+}
 .panel{
-  background: rgb(228, 228, 231);
+  position:fixed;
+  background: rgb(39, 143, 138);
+  color:white;
+  width: 16%;
+  left: 1%;
 }
-
+.input{
+  padding-left: 9px;
+}
+.checkbox{
+  padding-left: 20px;
+}
+.input ::ng-deep .mat-form-field-label {
+    color: white;
+}
 .nb{
   background-color: #526352;
     border: none;
