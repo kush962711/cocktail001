@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CocktailService }  from './services/cocktail.service';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +6,6 @@ import { CocktailService }  from './services/cocktail.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private cocktail:CocktailService){}
-
+  constructor() {}
   title = 'cocktail002';
-
 }

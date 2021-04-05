@@ -1,21 +1,5 @@
-/* .item {
-    cursor: pointer;
-  }
-  
-  .cocktail-item-list {
-    max-height: 500px;
-    overflow-y: scroll;
-    width: 400px;
-  }
-  
-  .app{
-      position: absolute;
-      left: 300px;
-      top:100px;
-  } */
-
   .example-card {
-    max-height:60px;
+    max-height:7%;
     background-color: black;
     color:white;
     border-width: thin;
@@ -26,18 +10,19 @@
     text-align: center;
   }
   .app{
-    position: absolute;
-    left: 300px;
-    top:100px;
-    max-height: 500px;
-    width: 400px;
-    border-radius: 20px;
-
+    position: fixed;
+    left: 23.8%;
+    top:15%;
+    max-height: 70%;
+    width: 40%;
+    border-radius: 0px;
+    border-color: darkcyan;
+    border-style:solid;
+    border-radius:10px;
     overflow-y: scroll;
 }
-
 .spinner{
   position: absolute;
-  left: 700px;
-  top:300px;
+  left: 50%;
+  top:40%;
 }

@@ -25,8 +25,7 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.css",
-              "src/assets/semantic-ui/semantic.min.css"
+              "src/styles.css"
             ],
             "scripts": []
           },

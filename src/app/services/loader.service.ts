@@ -8,7 +8,7 @@ export class LoaderService {
   constructor() { }
   public isLoadingSpinner = false;
   public spinnerShow(): void {
-    this.isLoadingSpinner=true;
+    this.isLoadingSpinner = true;
     setTimeout(() => {
       this.isLoadingSpinner = false;
     }, 2500);

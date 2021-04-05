@@ -1,19 +1,21 @@
-.footer {
+@import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
+
+
+.buttonpos {
     position: fixed;
-    left: 1100px;
-    top: 150px;
-    width: 200px;
+    left: 20%;
+    bottom : 2%;
     color: white;
     text-align: center;
-    border: 1px solid black;
+    border: 2px solid white;
     border-radius: 10px;
   }
 
   button {
-    background-color: #526352;
+    background-color: rgb(44, 42, 42);
     border: none;
     color: white;
-    padding: 10px 10px;
+    padding: 10px 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -22,54 +24,118 @@
     border-radius: 6px;
     cursor: pointer;
   }
+ .footer{
+   position: fixed;
+  width:100%;
+   bottom:0%;
+  height: 12%;
+  background:darkcyan;
+  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
 
+ }
   .para {
     position: fixed;
-    left: 1113px;
-    top: 100px;
+    left: 45%;
+    bottom: 4%;
+    color:white;
     display: inline-block;
     padding:20px 20px;
+    font-family: 'Merriweather', 'cursive' ;
     font-size: 20px;
-    color: black;
     text-align: center;
   }
 
   .search{
     position: fixed;
-    left: 1400px;
-    top: 100px;
+    left: 1%;
+    top: 15%;
+    height:10%;
+    width:13.65%;
     display: inline-block;
     padding:20px 20px;
     font-size: 15px;
-    color: black;
+    color: white;
     text-align: center;
+    background: rgb(39, 143, 138);
+    border-radius: 5px;
   }
 
   .search-icon{
     cursor:pointer;
+    color: white;
   }
+ 
   
   .spinner{
     position: absolute;
-    left: 700px;
-    top:300px;
+    left: 50%;
+    top:40%;
   }
 
+  .example-card {
+    max-height:7%;
+    background-color: black;
+    color:white;
+    border-width: thin;
+    border-style:solid;
+    border-color:white;
+  }
+  .a{
+    text-align: center;
+  }
   .app{
-    position: absolute;
-    left: 300px;
-    top:100px;
-    max-height: 500px;
-    width: 400px;
-    border-radius: 20px;
+    position: fixed;
+    left: 23.8%;
+    top:15%;
+    max-height: 70%;
+    width: 40%;
+    border-radius: 0px;
+    border-color: darkcyan;
+    border-style:solid;
+    border-radius:10px;
     overflow-y: scroll;
 }
 
-.example-card {
-  max-height:60px;
-  background-color: black;
+
+.title{
   color:white;
-  border-width: thin;
-  border-style:solid;
-  border-color:white;
+  padding-left: 13px;
+}
+.mat-form-field-label {
+  color: white;
+}
+.panel{
+  position:fixed;
+  background: rgb(39, 143, 138);
+  color:white;
+  width: 16%;
+  left: 1%;
+}
+.input{
+  padding-left: 9px;
+}
+.checkbox{
+  padding-left: 20px;
+}
+.input ::ng-deep .mat-form-field-label {
+    color: white;
+}
+.nb{
+  background-color: #526352;
+    border: none;
+    color: white;
+    padding: 1px 1px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 7px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.searching{
+  height:79%;
+  width: 18%;
+  background: rgb(232, 241, 245);
+  border-right: 2px solid darkcyan;
 }

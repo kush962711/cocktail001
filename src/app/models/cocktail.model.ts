@@ -1,71 +1,29 @@
-import { Drink } from "./Drink.model";
-
-export class Cocktail implements Drink {
-  name: String;
-  imgThumb: String;
-  id: String;
-  instructions?: String;
-  ingredient1?: String;
-  ingredient2?: String;
-  ingredient3?: String;
-  ingredient4?: String;
-  ingredient5?: String;
-  ingredient6?: String;
-  ingredient7?: String;
-  ingredient8?: String;
-  measure1?: String;
-  measure2?: String;
-  measure3?: String;
-  measure4?: String;
-  measure5?: String;
-  measure6?: String;
-  measure7?: String;
-  measure8?: String;
+export class Cocktail {
   constructor(
-    name: String,
-    imgThumb: String,
-    id: String,
-    instructions?: String,
-    ingredient1?: String,
-    ingredient2?: String,
-    ingredient3?: String,
-    ingredient4?: String,
-    ingredient5?: String,
-    ingredient6?: String,
-    ingredient7?: String,
-    ingredient8?: String,
-    measure1?: String,
-    measure2?: String,
-    measure3?: String,
-    measure4?: String,
-    measure5?: String,
-    measure6?: String,
-    measure7?: String,
-    measure8?: String
+    public name: String,
+    public imgThumb: String,
+    public id: String,
+    public instructions?: String,
+    public ingredient1?: String,
+    public ingredient2?: String,
+    public ingredient3?: String,
+    public ingredient4?: String,
+    public ingredient5?: String,
+    public ingredient6?: String,
+    public ingredient7?: String,
+    public ingredient8?: String,
+    public measure1?: String,
+    public measure2?: String,
+    public measure3?: String,
+    public measure4?: String,
+    public measure5?: String,
+    public measure6?: String,
+    public measure7?: String,
+    public measure8?: String,
   ) {
-    this.name = name;
-    this.imgThumb = imgThumb;
-    this.id = id;
-    instructions ? (this.instructions = instructions) : null;
-    ingredient1 ? (this.ingredient1 = ingredient1) : null;
-    ingredient2 ? (this.ingredient2 = ingredient2) : null;
-    ingredient3 ? (this.ingredient3 = ingredient3) : null;
-    ingredient4 ? (this.ingredient4 = ingredient4) : null;
-    ingredient5 ? (this.ingredient5 = ingredient5) : null;
-    ingredient6 ? (this.ingredient6 = ingredient6) : null;
-    ingredient7 ? (this.ingredient7 = ingredient7) : null;
-    ingredient8 ? (this.ingredient8 = ingredient8) : null;
-    measure1 ? (this.measure1 = measure1) : null,
-      measure2 ? (this.measure2 = measure2) : null,
-      measure3 ? (this.measure3 = measure3) : null,
-      measure4 ? (this.measure4 = measure4) : null,
-      measure5 ? (this.measure5 = measure5) : null,
-      measure6 ? (this.measure6 = measure6) : null,
-      measure7 ? (this.measure7 = measure7) : null,
-      measure8 ? (this.measure8 = measure8) : null;
   }
 
-  static adapt(item: any): Cocktail {
+  static transform(item: any): Cocktail {
     return new Cocktail(
       item.strDrink,
       item.strDrinkThumb,
