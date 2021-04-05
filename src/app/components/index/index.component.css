@@ -30,7 +30,7 @@
    bottom:0%;
   height: 12%;
   background:darkcyan;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
 
  }
   .para {
@@ -49,16 +49,15 @@
     position: fixed;
     left: 1%;
     top: 15%;
-    height:3%;
+    height:10%;
     width:13.65%;
     display: inline-block;
     padding:20px 20px;
     font-size: 15px;
-    color: black;
+    color: white;
     text-align: center;
     background: rgb(39, 143, 138);
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
+    border-radius: 5px;
   }
 
   .search-icon{
@@ -91,19 +90,13 @@
     max-height: 70%;
     width: 40%;
     border-radius: 0px;
-    border-width:thin;
-    border-color: black;
+    border-color: darkcyan;
     border-style:solid;
     border-radius:10px;
     overflow-y: scroll;
 }
 
-.expand{
-  position: absolute;
-  left:1%;
-  top:22%;
-  width:16%;
-}
+
 .title{
   color:white;
   padding-left: 13px;
@@ -112,8 +105,11 @@
   color: white;
 }
 .panel{
+  position:fixed;
   background: rgb(39, 143, 138);
   color:white;
+  width: 16%;
+  left: 1%;
 }
 .input{
   padding-left: 9px;

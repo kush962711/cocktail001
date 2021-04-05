@@ -22,7 +22,6 @@ export class IndexComponent implements OnInit {
   searchedElement: Cocktail;
   clicked: boolean = false;
   initialList: Cocktail[] = [];
-  advancedSearch: boolean = false;
   searchListLength: number;
 
   filtersForm = new FormGroup({
@@ -62,6 +61,12 @@ export class IndexComponent implements OnInit {
     this.searchListLength = 1;
     this.loader.spinnerShow();
     this.cocktail.isFiltering = true;
+    if(search.length===0)
+    {
+      this.cocktail.isDefault=false;
+      this.searchListLength=0;
+    }
+    else{
     this.cocktail.getSearchedCocktail(search)
       .subscribe(
         data => {
@@ -72,25 +77,24 @@ export class IndexComponent implements OnInit {
             console.log(this.searchListLength);
           }
         });
+      }
   }
 
   cocktailDetail(cocktail: Cocktail): void {
-
     this.searchedElement = cocktail;
-
     this.clicked = true;
     this.cocktail.hasSearched = false;
   }
 
   submitForm(): void {
-    this.advancedSearch = true;
+    this.searchListLength = 1;
     this.cocktail.isDefault = false;
     this.cocktail.hasSearched = true;
     this.loader.spinnerShow();
     this.cocktail.isFiltering = true;
     this.searchList = [];
     const seen = new Set();
-    this.initialList=[];
+    this.initialList = [];
     if (this.filtersForm.value.ing && this.filtersForm.value.ordinary && this.filtersForm.value.cocktail) {
 
       let ing = this.filtersForm.value.ing.toLowerCase();
@@ -117,9 +121,10 @@ export class IndexComponent implements OnInit {
                 )
             }
           }
-      );
+        );
 
       setTimeout(() => {
+
         for (let i = 0; i <= this.initialList.length - 1; i++) {
           let el = this.initialList[i];
           console.log(el);
@@ -132,7 +137,7 @@ export class IndexComponent implements OnInit {
               continue;
             }
           }
-           if (el.ingredient2) {
+          if (el.ingredient2) {
             console.log('Ing2 exists');
 
 
@@ -143,7 +148,7 @@ export class IndexComponent implements OnInit {
               continue;
             }
           }
-           if (el.ingredient3) {
+          if (el.ingredient3) {
             console.log('ing3 exists');
             if (el.ingredient3.toLowerCase().includes(ing)) {
               console.log('');
@@ -152,7 +157,7 @@ export class IndexComponent implements OnInit {
               continue;
             }
           }
-           if (el.ingredient4) {
+          if (el.ingredient4) {
             console.log('ing4 exists');
 
             if (el.ingredient4.toLowerCase().includes(ing)) {
@@ -162,7 +167,7 @@ export class IndexComponent implements OnInit {
               continue;
             }
           }
-           if (el.ingredient5) {
+          if (el.ingredient5) {
             console.log('ing5 exists');
 
             if (el.ingredient5.toLowerCase().includes(ing)) {
@@ -172,7 +177,7 @@ export class IndexComponent implements OnInit {
               continue;
             }
           }
-           if (el.ingredient6) {
+          if (el.ingredient6) {
             console.log('ing6 exists');
 
             if (el.ingredient6.toLowerCase().includes(ing)) {
@@ -182,7 +187,7 @@ export class IndexComponent implements OnInit {
               continue;
             }
           }
-           if (el.ingredient7) {
+          if (el.ingredient7) {
             console.log('ing7 exists');
 
             if (el.ingredient7.toLowerCase().includes(ing)) {
@@ -192,7 +197,7 @@ export class IndexComponent implements OnInit {
               continue;
             }
           }
-           if (el.ingredient8) {
+          if (el.ingredient8) {
             console.log('ing8 exists');
 
             if (el.ingredient8.toLowerCase().includes(ing)) {
@@ -204,6 +209,8 @@ export class IndexComponent implements OnInit {
           }
 
         }
+        if (this.searchList.length === 0)
+          this.searchListLength = 0;
       }, 2000);
     }
     else if (this.filtersForm.value.ing && this.filtersForm.value.ordinary) {
@@ -223,6 +230,8 @@ export class IndexComponent implements OnInit {
         );
 
       setTimeout(() => {
+        if (this.initialList.length === 0)
+          this.searchListLength = 0;
         for (let i = 0; i <= this.initialList.length - 1; i++) {
           let el = this.initialList[i];
           console.log(el);
@@ -235,7 +244,7 @@ export class IndexComponent implements OnInit {
               continue;
             }
           }
-           if (el.ingredient2) {
+          if (el.ingredient2) {
             console.log('Ing2 exists');
 
 
@@ -246,7 +255,7 @@ export class IndexComponent implements OnInit {
               continue;
             }
           }
-           if (el.ingredient3) {
+          if (el.ingredient3) {
             console.log('ing3 exists');
             if (el.ingredient3.toLowerCase().includes(ing)) {
               console.log('');
@@ -255,7 +264,7 @@ export class IndexComponent implements OnInit {
               continue;
             }
           }
-           if (el.ingredient4) {
+          if (el.ingredient4) {
             console.log('ing4 exists');
 
             if (el.ingredient4.toLowerCase().includes(ing)) {
@@ -265,7 +274,7 @@ export class IndexComponent implements OnInit {
               continue;
             }
           }
-           if (el.ingredient5) {
+          if (el.ingredient5) {
             console.log('ing5 exists');
 
             if (el.ingredient5.toLowerCase().includes(ing)) {
@@ -275,7 +284,7 @@ export class IndexComponent implements OnInit {
               continue;
             }
           }
-           if (el.ingredient6) {
+          if (el.ingredient6) {
             console.log('ing6 exists');
 
             if (el.ingredient6.toLowerCase().includes(ing)) {
@@ -285,7 +294,7 @@ export class IndexComponent implements OnInit {
               continue;
             }
           }
-           if (el.ingredient7) {
+          if (el.ingredient7) {
             console.log('ing7 exists');
 
             if (el.ingredient7.toLowerCase().includes(ing)) {
@@ -295,7 +304,7 @@ export class IndexComponent implements OnInit {
               continue;
             }
           }
-           if (el.ingredient8) {
+          if (el.ingredient8) {
             console.log('ing8 exists');
 
             if (el.ingredient8.toLowerCase().includes(ing)) {
@@ -307,6 +316,9 @@ export class IndexComponent implements OnInit {
           }
 
         }
+        if (this.searchList.length === 0)
+          this.searchListLength = 0;
+
       }, 2000);
     }
     else if (this.filtersForm.value.ing && this.filtersForm.value.cocktail) {
@@ -326,6 +338,7 @@ export class IndexComponent implements OnInit {
         );
 
       setTimeout(() => {
+
         for (let i = 0; i <= this.initialList.length - 1; i++) {
           let el = this.initialList[i];
           console.log(el);
@@ -338,7 +351,7 @@ export class IndexComponent implements OnInit {
               continue;
             }
           }
-           if (el.ingredient2) {
+          if (el.ingredient2) {
             console.log('Ing2 exists');
 
 
@@ -349,7 +362,7 @@ export class IndexComponent implements OnInit {
               continue;
             }
           }
-           if (el.ingredient3) {
+          if (el.ingredient3) {
             console.log('ing3 exists');
             if (el.ingredient3.toLowerCase().includes(ing)) {
               console.log('');
@@ -358,7 +371,7 @@ export class IndexComponent implements OnInit {
               continue;
             }
           }
-           if (el.ingredient4) {
+          if (el.ingredient4) {
             console.log('ing4 exists');
 
             if (el.ingredient4.toLowerCase().includes(ing)) {
@@ -368,7 +381,7 @@ export class IndexComponent implements OnInit {
               continue;
             }
           }
-           if (el.ingredient5) {
+          if (el.ingredient5) {
             console.log('ing5 exists');
 
             if (el.ingredient5.toLowerCase().includes(ing)) {
@@ -378,7 +391,7 @@ export class IndexComponent implements OnInit {
               continue;
             }
           }
-           if (el.ingredient6) {
+          if (el.ingredient6) {
             console.log('ing6 exists');
 
             if (el.ingredient6.toLowerCase().includes(ing)) {
@@ -388,7 +401,7 @@ export class IndexComponent implements OnInit {
               continue;
             }
           }
-           if (el.ingredient7) {
+          if (el.ingredient7) {
             console.log('ing7 exists');
 
             if (el.ingredient7.toLowerCase().includes(ing)) {
@@ -398,7 +411,7 @@ export class IndexComponent implements OnInit {
               continue;
             }
           }
-           if (el.ingredient8) {
+          if (el.ingredient8) {
             console.log('ing8 exists');
 
             if (el.ingredient8.toLowerCase().includes(ing)) {
@@ -408,8 +421,9 @@ export class IndexComponent implements OnInit {
               continue;
             }
           }
-
         }
+        if (this.searchList.length === 0)
+          this.searchListLength = 0;
       }, 2000);
     }
     else if (this.filtersForm.value.ordinary && this.filtersForm.value.cocktail) {
@@ -436,7 +450,7 @@ export class IndexComponent implements OnInit {
                 )
             }
           }
-      );
+        );
 
       setTimeout(() => {
         this.searchList = this.initialList;
@@ -455,8 +469,8 @@ export class IndexComponent implements OnInit {
             }
           }
         );
-
       setTimeout(() => {
+
         this.searchList = this.initialList;
       }, 2000);
     }
@@ -475,6 +489,7 @@ export class IndexComponent implements OnInit {
         );
 
       setTimeout(() => {
+
         this.searchList = this.initialList;
       }, 2000);
     }
@@ -486,12 +501,22 @@ export class IndexComponent implements OnInit {
             for (let i = 0; i <= data.length - 1; i++) {
               this.cocktail.searchById(+data[i].id).
                 subscribe(
-                  data => this.searchList[i] = data[0]
+                  data => {
+                    this.initialList[i] = data[0]
+                  }
                 )
             }
-            console.log(this.searchList);
           }
         );
+
+      setTimeout(() => {
+        this.searchList = this.initialList;
+        if (this.initialList.length === 0)
+          this.searchListLength = 0;
+      }, 2000);
+    }
+    else{
+      this.searchListLength=0;
     }
   }
 }

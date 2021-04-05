@@ -5,9 +5,8 @@
     width:20%;
     height:69.5%;
     overflow-y: scroll;
-    border-color: black;
+    border-color: darkcyan;
     border-style: solid;
-    border-width:thin;
     padding: 3px;
     border-radius:10px;
     }
