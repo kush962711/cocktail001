@@ -3,7 +3,8 @@ import { CocktailService } from '/Users/wiznidev/cocktail001/src/app/services/co
 import { ParamMap, ActivatedRoute, Router } from '@angular/router';
 import { Cocktail } from './../../../models/Cocktail.model';
 import { LoaderService } from './../../../services/loader.service';
-
+import { Store } from '@ngxs/store';
+import { GetCocktail } from './../../../actions/cocktail.action';
 @Component({
   selector: 'app-indexedcontent',
   templateUrl: './indexedcontent.component.html',
@@ -18,7 +19,8 @@ export class IndexedcontentComponent implements OnInit {
   constructor(
     private cocktail: CocktailService,
     private route: ActivatedRoute,
-    public loader: LoaderService
+    public loader: LoaderService,
+    private store: Store
   ) { }
 
   ngOnInit(): void {
@@ -37,7 +39,7 @@ export class IndexedcontentComponent implements OnInit {
     this.cocktail.isFiltering = false;
   }
   cocktailDetail(cocktail: Cocktail): void {
-    this.indexedElement = cocktail;
+    this.store.dispatch(new GetCocktail(cocktail));
     this.clicked = true;
   }
 }

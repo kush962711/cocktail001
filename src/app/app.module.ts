@@ -17,7 +17,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { SearchresultsComponent } from './components/index/searchresults/searchresults.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDividerModule } from '@angular/material/divider';
-
+import { NgxsModule } from '@ngxs/store';
+import { CocktailState, CocktailStateModel } from './state/cocktail.state';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,10 @@ import { MatDividerModule } from '@angular/material/divider';
     MatProgressSpinnerModule,
     MatExpansionModule,
     ReactiveFormsModule,
-    MatDividerModule
+    MatDividerModule,
+    NgxsModule.forRoot([
+      CocktailState
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

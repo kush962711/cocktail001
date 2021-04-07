@@ -4,6 +4,9 @@ import { CocktailService } from './../../services/cocktail.service';
 import { LoaderService } from './../../services/loader.service';
 import { Cocktail } from './../../models/Cocktail.model';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Store } from '@ngxs/store';
+import { GetCocktail } from 'src/app/actions/cocktail.action';
+
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -14,7 +17,8 @@ export class IndexComponent implements OnInit {
   constructor(
     public cocktail: CocktailService,
     private router: Router,
-    public loader: LoaderService
+    public loader: LoaderService,
+    private store: Store
   ) { }
   isFiltering: boolean = false;
   arr: Array<String> = [];
@@ -81,7 +85,7 @@ export class IndexComponent implements OnInit {
   }
 
   cocktailDetail(cocktail: Cocktail): void {
-    this.searchedElement = cocktail;
+    this.store.dispatch(new GetCocktail(cocktail));
     this.clicked = true;
     this.cocktail.hasSearched = false;
   }
@@ -95,7 +99,7 @@ export class IndexComponent implements OnInit {
     this.searchList = [];
     const seen = new Set();
     this.initialList = [];
-    if (this.filtersForm.value.ing && this.filtersForm.value.ordinary && this.filtersForm.value.cocktail) {
+    if (this.filtersForm.value.ing && this.filtersForm.value.ordinary && this.filtersForm.value.cocktail) { //if selected all three fields in advanced search
 
       let ing = this.filtersForm.value.ing.toLowerCase();
       console.log(ing);
@@ -213,8 +217,7 @@ export class IndexComponent implements OnInit {
           this.searchListLength = 0;
       }, 2000);
     }
-    else if (this.filtersForm.value.ing && this.filtersForm.value.ordinary) {
-
+    else if (this.filtersForm.value.ing && this.filtersForm.value.ordinary) { //searching ordinary drinks that contain a specific ingredient
       let ing = this.filtersForm.value.ing.toLowerCase();
       console.log(ing);
       this.cocktail.searchByType('Ordinary_Drink')
@@ -321,7 +324,7 @@ export class IndexComponent implements OnInit {
 
       }, 2000);
     }
-    else if (this.filtersForm.value.ing && this.filtersForm.value.cocktail) {
+    else if (this.filtersForm.value.ing && this.filtersForm.value.cocktail) { //searching cocktails that contain a specific ingredient
 
       let ing = this.filtersForm.value.ing.toLowerCase();
       console.log(ing);
@@ -426,8 +429,7 @@ export class IndexComponent implements OnInit {
           this.searchListLength = 0;
       }, 2000);
     }
-    else if (this.filtersForm.value.ordinary && this.filtersForm.value.cocktail) {
-
+    else if (this.filtersForm.value.ordinary && this.filtersForm.value.cocktail) {  //displaying all ordinary drinks and cocktails
       this.cocktail.searchByType('Ordinary_Drink')
         .subscribe(
           data => {
@@ -456,7 +458,7 @@ export class IndexComponent implements OnInit {
         this.searchList = this.initialList;
       }, 2000);
     }
-    else if (this.filtersForm.value.ordinary) {
+    else if (this.filtersForm.value.ordinary) { //displaying all ordinary drinks
 
       this.cocktail.searchByType('Ordinary_Drink')
         .subscribe(
@@ -474,7 +476,7 @@ export class IndexComponent implements OnInit {
         this.searchList = this.initialList;
       }, 2000);
     }
-    else if (this.filtersForm.value.cocktail) {
+    else if (this.filtersForm.value.cocktail) {   //displaying all cocktails
 
       this.cocktail.searchByType('Cocktail')
         .subscribe(
@@ -493,7 +495,7 @@ export class IndexComponent implements OnInit {
         this.searchList = this.initialList;
       }, 2000);
     }
-    else if (this.filtersForm.value.ing) {
+    else if (this.filtersForm.value.ing) { //searching a particular ingredient
       console.log(this.filtersForm.value.ing)
       this.cocktail.getIngredientCocktail(this.filtersForm.value.ing)
         .subscribe(

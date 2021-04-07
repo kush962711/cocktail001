@@ -2,14 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Cocktail } from './../models/Cocktail.model';
 import { Observable } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CocktailService {
 
-  val: Observable<Cocktail[]>;
   isFiltering: boolean = false;
   isDefault: boolean;
   hasSearched: boolean;
