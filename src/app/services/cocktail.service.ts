@@ -9,9 +9,8 @@ import { map } from 'rxjs/operators';
 })
 export class CocktailService {
 
-  isFiltering: boolean = false;
-  isDefault: boolean;
-  hasSearched: boolean;
+  hasSearched: boolean =true; 
+  isdef:number = 0;
   constructor(private http: HttpClient) { }
   getIndexed(index: String): Observable<Cocktail[]> {
 

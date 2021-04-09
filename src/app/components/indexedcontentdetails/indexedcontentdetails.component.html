@@ -1,4 +1,4 @@
-<div class="card" *ngIf="!cocktail.isFiltering && !cocktail.isDefault">
+<div class="card" *ngIf="!cocktail.hasSearched">
   <mat-card>
     <mat-card-header>
       <mat-card-title> {{ element.name }} </mat-card-title>

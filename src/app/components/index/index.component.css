@@ -72,29 +72,10 @@
     top:40%;
   }
 
-  .example-card {
-    max-height:7%;
-    background-color: black;
-    color:white;
-    border-width: thin;
-    border-style:solid;
-    border-color:white;
-  }
+ 
   .a{
     text-align: center;
   }
-  .app{
-    position: fixed;
-    left: 23.8%;
-    top:15%;
-    max-height: 70%;
-    width: 40%;
-    border-radius: 0px;
-    border-color: darkcyan;
-    border-style:solid;
-    border-radius:10px;
-    overflow-y: scroll;
-}
 
 
 .title{

@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Cocktail } from 'src/app/models/Cocktail.model';
-import { CocktailService } from './../../../../services/cocktail.service';
+import { CocktailService } from '../../services/cocktail.service';
 import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
-import { CocktailState } from './../../../../state/cocktail.state';
+import { CocktailState } from '../../state/cocktail.state';
+
 @Component({
   selector: 'app-indexedcontentdetails',
   templateUrl: './indexedcontentdetails.component.html',
@@ -11,12 +12,15 @@ import { CocktailState } from './../../../../state/cocktail.state';
 })
 export class IndexedcontentdetailsComponent implements OnInit {
  
-    @Select(CocktailState.getCocktails) cocktail$:Observable<Cocktail>;
+    @Select(CocktailState.getCocktail) cocktail$:Observable<Cocktail>;
     element : Cocktail;
     constructor(
       public cocktail:CocktailService){
       }
   ngOnInit(): void {
-  this.cocktail$.subscribe(data=> this.element=data);
+  this.cocktail$.subscribe(data=> {
+    console.log(this.cocktail.hasSearched)
+    this.element=data}
+    );
   }
 }

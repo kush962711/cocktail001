@@ -17,8 +17,11 @@
       font-size: 2vw;
       letter-spacing: 0.51em;
       color:white;
+      cursor: pointer;
     }
-  
+  .header-image{
+    cursor: pointer;
+  }
 img {
       max-width: auto;
       max-height: 3vw;
