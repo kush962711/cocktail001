@@ -1,10 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CocktailService } from '/Users/wiznidev/cocktail001/src/app/services/cocktail.service';
 import { ParamMap, ActivatedRoute, Router } from '@angular/router';
 import { Cocktail } from '../../models/Cocktail.model';
 import { LoaderService } from '../../services/loader.service';
 import { Store, Select } from '@ngxs/store';
-import { GetCocktail } from '../../actions/cocktail.action';
+import { GetCocktail, GetCocktails } from '../../actions/cocktail.action';
 import { CocktailState } from './../../state/cocktail.state';
 import { Observable } from 'rxjs';
 
@@ -40,7 +40,9 @@ export class IndexedcontentComponent implements OnInit {
       switch (data.kind) {
         case 'default':{
           this.cocktail.getIndexed('a').subscribe(res=>{
+            this.indexedList = [];
             this.indexedList =  res;
+            this.store.dispatch(new GetCocktails(this.indexedList));
           });
           break;
         }
@@ -51,11 +53,14 @@ export class IndexedcontentComponent implements OnInit {
               this.indexedListEmpty = true;
               this.indexedList = [];
               this.loader.isLoadingSpinner = false;
+              this.store.dispatch(new GetCocktails(this.indexedList));
             }
             else {
                 this.cocktail.getIndexed(this.index).subscribe(res => {
+                this.indexedList=[];
                 this.indexedListEmpty = false;
                 this.indexedList = res;
+                this.store.dispatch(new GetCocktails(this.indexedList));
                 console.log(this.indexedList);
               });
             }
@@ -66,21 +71,20 @@ export class IndexedcontentComponent implements OnInit {
         case 'search': {
           this.route.queryParamMap.subscribe((qp) => {
             this.search = qp.get('s');
+            console.log(this.search);
+            if (this.search.length === 0) {
+              this.indexedListEmpty = true;
+            }
+            else {
+              this.cocktail.getSearchedCocktail(this.search)
+                .subscribe(
+                  data => {
+                    this.indexedList = [];
+                    data === null ? this.indexedListEmpty= true : this.indexedList=data;
+                    this.store.dispatch(new GetCocktails(this.indexedList));
+                  });
+            }
           });
-          if (this.search.length === 0) {
-            this.indexedListEmpty = true;
-          }
-          else {
-            this.cocktail.getSearchedCocktail(this.search)
-              .subscribe(
-                data => {
-                  this.indexedList = data
-                  if (this.indexedList === null) {
-                    this.indexedListEmpty = true;
-                    console.log(this.indexedList);
-                  }
-                });
-          }
           break;
         }
 
@@ -103,7 +107,6 @@ export class IndexedcontentComponent implements OnInit {
               this.indexedList = [];
               if (this.ing.length > 0 && this.ordinary && this.cocktail1) { //if selected all three fields in advanced search
                 this.initialList = [];
-
                 let ing = this.ing.toLowerCase();
                 console.log(ing);
                 this.cocktail.searchByType('Ordinary_Drink')
@@ -131,7 +134,7 @@ export class IndexedcontentComponent implements OnInit {
                   );
 
                 setTimeout(() => {
-
+                  this.indexedList = [];
                   for (let i = 0; i <= this.initialList.length - 1; i++) {
                     let el = this.initialList[i];
                     console.log(el);
@@ -218,6 +221,7 @@ export class IndexedcontentComponent implements OnInit {
                   }
                   if (this.indexedList.length === 0)
                     this.indexedListEmpty = true;
+                    this.store.dispatch(new GetCocktails(this.indexedList));
                 }, 2000);
               }
               else if (this.ing.length > 0 && this.ordinary) { //searching ordinary drinks that contain a specific ingredient
@@ -226,6 +230,7 @@ export class IndexedcontentComponent implements OnInit {
                 this.cocktail.searchByType('Ordinary_Drink')
                   .subscribe(
                     data => {
+                      this.initialList = [];
                       for (let i = 0; i <= data.length - 1; i++) {
                         this.cocktail.searchById(+data[i].id).
                           subscribe(
@@ -236,6 +241,7 @@ export class IndexedcontentComponent implements OnInit {
                   );
 
                 setTimeout(() => {
+                  this.indexedList = [];
                   if (this.initialList.length === 0)
                     this.indexedListEmpty = true;
                   for (let i = 0; i <= this.initialList.length - 1; i++) {
@@ -324,16 +330,17 @@ export class IndexedcontentComponent implements OnInit {
                   }
                   if (this.indexedList.length === 0)
                     this.indexedListEmpty = true;
-
+                    this.store.dispatch(new GetCocktails(this.indexedList));
                 }, 2000);
               }
               else if (this.ing.length > 0 && this.cocktail1) { //searching cocktails that contain a specific ingredient
-
+                this.initialList = [];
                 let ing = this.ing.toLowerCase();
                 console.log(ing);
                 this.cocktail.searchByType('Cocktail')
                   .subscribe(
                     data => {
+                      this.initialList = [];
                       for (let i = 0; i <= data.length - 1; i++) {
                         this.cocktail.searchById(+data[i].id).
                           subscribe(
@@ -344,7 +351,7 @@ export class IndexedcontentComponent implements OnInit {
                   );
 
                 setTimeout(() => {
-
+                  this.indexedList = [];
                   for (let i = 0; i <= this.initialList.length - 1; i++) {
                     let el = this.initialList[i];
                     console.log(el);
@@ -430,12 +437,14 @@ export class IndexedcontentComponent implements OnInit {
                   }
                   if (this.indexedList.length === 0)
                     this.indexedListEmpty = true;
+                    this.store.dispatch(new GetCocktails(this.indexedList));
                 }, 2000);
               }
               else if (this.ordinary && this.cocktail1) {  //displaying all ordinary drinks and cocktails
                 this.cocktail.searchByType('Ordinary_Drink')
                   .subscribe(
                     data => {
+                      this.initialList = [];
                       for (let i = 0; i <= data.length - 1; i++) {
                         this.cocktail.searchById(+data[i].id).
                           subscribe(
@@ -448,6 +457,7 @@ export class IndexedcontentComponent implements OnInit {
                 this.cocktail.searchByType('Cocktail')
                   .subscribe(
                     data => {
+                      this.initialList = [];
                       for (let i = 0; i <= data.length - 1; i++) {
                         this.cocktail.searchById(+data[i].id).
                           subscribe(
@@ -458,7 +468,9 @@ export class IndexedcontentComponent implements OnInit {
                   );
 
                 setTimeout(() => {
+                  this.indexedList = [];
                   this.indexedList = this.initialList;
+                  this.store.dispatch(new GetCocktails(this.indexedList));
                 }, 2000);
               }
               else if (this.ordinary) { //displaying all ordinary drinks
@@ -466,6 +478,7 @@ export class IndexedcontentComponent implements OnInit {
                 this.cocktail.searchByType('Ordinary_Drink')
                   .subscribe(
                     data => {
+                      this.initialList = [];
                       for (let i = 0; i <= data.length - 1; i++) {
                         this.cocktail.searchById(+data[i].id).
                           subscribe(
@@ -475,8 +488,9 @@ export class IndexedcontentComponent implements OnInit {
                     }
                   );
                 setTimeout(() => {
-
+                  this.indexedList = [];
                   this.indexedList = this.initialList;
+                  this.store.dispatch(new GetCocktails(this.indexedList));
                 }, 2000);
               }
               else if (this.cocktail1) {   //displaying all cocktails
@@ -494,8 +508,9 @@ export class IndexedcontentComponent implements OnInit {
                   );
 
                 setTimeout(() => {
-
+                  this.indexedList = [];
                   this.indexedList = this.initialList;
+                  this.store.dispatch(new GetCocktails(this.indexedList));
                 }, 2000);
               }
               else if (this.ing) { //searching a particular ingredient
@@ -503,6 +518,7 @@ export class IndexedcontentComponent implements OnInit {
                 this.cocktail.getIngredientCocktail(this.ing)
                   .subscribe(
                     (data: Cocktail[]) => {
+                      this.initialList = [];
                       for (let i = 0; i <= data.length - 1; i++) {
                         this.cocktail.searchById(+data[i].id).
                           subscribe(
@@ -515,10 +531,13 @@ export class IndexedcontentComponent implements OnInit {
                   );
 
                 setTimeout(() => {
+                  this.indexedList = [];
+                  console.log(this.initialList);
                   this.indexedList = this.initialList;
                   console.log(this.indexedList);
                   if (this.initialList.length === 0)
                     this.indexedListEmpty = true;
+                  this.store.dispatch(new GetCocktails(this.indexedList));
                 }, 2000);
               }
               else {
